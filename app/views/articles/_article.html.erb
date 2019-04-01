@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <%= link_to "Edit", edit_article_path(article), class: "btn btn-primuary btn-sm" %>
+        <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-primary btn-sm" %>
         <%= link_to "Delete", article_path(article), method: :delete, remote: true,
                     data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
       </div>

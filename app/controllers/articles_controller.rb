@@ -7,14 +7,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
+		debugger
 		@article = Article.new(article_params)
-		respond_to do |format|
-			if @article.save
-				format.html{ redirect_to @article }
-				format.js
-			else
-				render 'new'
-			end
+		@article.user = User.first
+		if @article.save
+			redirect_to @article
+		else
+			render 'new'
 		end
 	end
 
