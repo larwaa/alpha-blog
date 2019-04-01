@@ -1,0 +1,63 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+$theme-colors:(
+        "primary": #2a599b,
+);
+
+@import "bootstrap";
+
+#logo {
+  letter-spacing: -1px;
+  font-weight: bold;
+  color: #2a599b;
+}
+
+.center {
+  text-align: center;
+}
+
+.jumbotron {
+  background-image: asset-url("bg-top-face.png");
+  background-size: cover;
+  height: 550px;
+}
+
+.jumbotron h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #1c3b66;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li{
+  float: left;
+  margin-left: 15px;
+}
+
+.article-actions {
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
+}
+
+.description {
+  margin-top: 0;
+}
+
+

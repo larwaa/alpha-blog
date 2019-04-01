@@ -1,0 +1,19 @@
+<div class="row" style="margin-bottom: 5px;" id="<%= article.id %>">
+  <div class="col-8 offset-2">
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="card-title">
+          <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="card-text">
+          <%= truncate(article.description, length: 100) %>
+        </div>
+      </div>
+      <div class="card-footer">
+        <%= link_to "Edit", edit_article_path(article), class: "btn btn-primuary btn-sm" %>
+        <%= link_to "Delete", article_path(article), method: :delete, remote: true,
+                    data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>

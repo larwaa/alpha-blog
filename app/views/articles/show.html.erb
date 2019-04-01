@@ -1,0 +1,14 @@
+<h2 style="text-align: center;">Title: <%= @article.title %></h2>
+<div class="card card-body bg-light col-8 offset-2">
+  <h4 style="text-align: center; margin-bottom: 0;"><strong>Description:</strong></h4>
+  <hr>
+  <%= simple_format(@article.description) %>
+  <div class="article-actions">
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Delete", article_path(@article), method: :delete,
+                         data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+    <%= link_to "View all articles", articles_path, class: "btn btn-outline-success btn-sm" %>
+  </div>
+</div>
+
+

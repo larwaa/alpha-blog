@@ -1,0 +1,2 @@
+$('ul#articles').append("<%= j render partial: 'article', locals: {article: @article} %>");
+$('form#new_article').find("input[type=text], textarea").val("")

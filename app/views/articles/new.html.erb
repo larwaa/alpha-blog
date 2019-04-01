@@ -1,0 +1,12 @@
+<h2 class="col-12 offset-2">Create new article</h2>
+
+<%= form_for Article.new do |f| %>
+  <%= render "form", f: f %>
+<% end %>
+
+<ul id="articles">
+  <%= render @articles %>
+</ul>
+
+<%= render 'layouts/messages' %>
+
