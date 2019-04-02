@@ -1,0 +1,6 @@
+<h2 class="offset-2">Edit <%=@user.username%></h2>
+<%= render "shared/errors", obj: @user %>
+
+<%= form_for @user do |f| %>
+  <%= render "form", f: f %>
+<% end %>
