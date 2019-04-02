@@ -20,8 +20,10 @@ gem 'bootstrap', '>= 4.3.1'
 # jquery, required for bootstrap
 gem 'jquery-rails'
 
-gem 'pry'
+# bcrypt for password hash and salt
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
+gem 'pry'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
