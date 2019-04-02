@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
 	resources :articles
 
+	get "register", to: "users#new"
+	resources :users, except: [:new]
+
 end
