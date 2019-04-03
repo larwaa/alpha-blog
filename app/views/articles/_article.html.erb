@@ -1,6 +1,6 @@
 
 <% obj.each do |article| %>
-  <div class="row" style="margin-bottom: 5px;" id="<%= article.id %>">
+  <div class="row mb-3" id="<%= article.id %>">
 	<div class="col-8 offset-2">
 	  <div class="card bg-light">
 		<div class="card-body">
@@ -17,7 +17,7 @@
 			</div>
 		  </div>
 		</div>
-		<% if logged_in? && current_user == article.user %>
+		<% if logged_in? and (current_user == article.user or current_user.admin?)%>
 		  <div class="card-footer">
 			<%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-primary btn-sm" %>
 			<%= link_to "Delete", article_path(article), method: :delete, remote: true,
