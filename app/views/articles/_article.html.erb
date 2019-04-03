@@ -1,27 +1,33 @@
+
 <% obj.each do |article| %>
   <div class="row" style="margin-bottom: 5px;" id="<%= article.id %>">
-    <div class="col-8 offset-2">
-      <div class="card bg-light">
-        <div class="card-body">
-          <h4 class="card-title">
-            <%= link_to article.title, article_path(article) %>
-          </h4>
-          <div class="card-text">
-            <%= truncate(article.description, length: 100) %>
-            <div>
-              <small class="text-muted">Created by: <%= link_to article.user.username, user_path(article.user) %>,
-                <%= time_ago_in_words(article.created_at) %> ago,
-                last updated: <%= time_ago_in_words(article.updated_at) %>
-              </small>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-primary btn-sm" %>
-          <%= link_to "Delete", article_path(article), method: :delete, remote: true,
-                      data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
-        </div>
-      </div>
-    </div>
+	<div class="col-8 offset-2">
+	  <div class="card bg-light">
+		<div class="card-body">
+		  <h4 class="card-title">
+			<%= link_to article.title, article_path(article) %>
+		  </h4>
+		  <div class="card-text">
+			<%= truncate(article.description, length: 100) %>
+			<div>exit
+			  <small class="text-muted">Created by: <%= link_to article.user.username, user_path(article.user) %>,
+				<%= time_ago_in_words(article.created_at) %> ago,
+				last updated: <%= time_ago_in_words(article.updated_at) %>
+			  </small>
+			</div>
+		  </div>
+		</div>
+		<div class="card-footer">
+		  <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-primary btn-sm" %>
+		  <%= link_to "Delete", article_path(article), method: :delete, remote: true,
+					  data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+		</div>
+	  </div>
+	</div>
   </div>
 <% end %>
+<div class="row justify-content-center">
+  <div>
+	<%= will_paginate obj, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
+</div>

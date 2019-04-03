@@ -23,6 +23,10 @@ gem 'jquery-rails'
 # bcrypt for password hash and salt
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
+# pagination
+gem 'will_paginate', '3.1.5'
+gem 'will_paginate-bootstrap4'
+
 gem 'pry'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
