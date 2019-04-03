@@ -8,8 +8,8 @@
           </h4>
           <div class="card-text">
             <%= truncate(article.description, length: 100) %>
-            <div class="article-meta-details">
-              <small>Created by: <%= article.user.username if article.user %>,
+            <div>
+              <small class="text-muted">Created by: <%= link_to article.user.username, user_path(article.user) %>,
                 <%= time_ago_in_words(article.created_at) %> ago,
                 last updated: <%= time_ago_in_words(article.updated_at) %>
               </small>

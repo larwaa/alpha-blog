@@ -1,0 +1,16 @@
+<h2 class="offset-2"> Users </h2>
+<% @users.each do |user| %>
+  <div class="card mb-3 offset-2" style="max-width: 540px;">
+    <div class="row no-gutters" id="<% user.id %>">
+      <div class="col-md-4">
+        <%= image_for user %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title"><%= link_to user.username, user_path(user) %></h4>
+          <%= pluralize(user.articles.count, "article") %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
