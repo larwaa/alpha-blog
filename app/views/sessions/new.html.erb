@@ -1,0 +1,22 @@
+<h2 class="col-8 offset-2">Log in</h2>
+
+<%= form_for :session, url: login_path do |f| %>
+  <div class="col-8 offset-2">
+	<div class="form-group">
+	  <%= f.label :email, class: "col-form-label" %>
+	  <%= f.text_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+	</div>
+	<div class="form-group">
+	  <%= f.label :password, class: "col-form-label" %>
+	  <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autocomplete: "off" %>
+	</div>
+	<div class="row">
+	  <div class="col-auto mr-auto">
+		<%= f.submit "Log in", class: "btn btn-primary btn-sm " %>
+	  </div>
+	  <div class="col-auto">
+		<%= link_to "Cancel", :back, class: "btn btn-outline-danger btn-sm" %>
+	  </div>
+	</div>
+  </div>
+<% end %>

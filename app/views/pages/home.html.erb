@@ -13,7 +13,9 @@
       </td>
     </tr>
   </table>
-  <%= link_to "Sign up", "#", class: "btn btn-light" %>
+  <% if !logged_in? %>
+  	<%= link_to "Register", register_path, class: "btn btn-light" %>
+  <% end %>
 </div>
 
 

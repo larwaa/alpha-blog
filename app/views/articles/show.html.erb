@@ -5,18 +5,20 @@
         <%= simple_format(@article.description) %>
       <div class="card-text"><small class="text-muted">Created by: <%= link_to @article.user.username, user_path(@article.user) %></small></div>
     </div>
-    <div class="card-footer">
-      <div class="row">
-        <div class="col-auto mr-auto">
-          <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-primary btn-sm" %>
-          <%= link_to "Delete", article_path(@article), method: :delete,
-                      data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
-        </div>
-        <div class="col-auto">
-          <%= link_to "View all articles", articles_path, class: "btn btn-outline-success btn-sm" %>
-        </div>
-      </div>
-    </div>
+	<% if logged_in? and current_user == @article.user %>
+	  <div class="card-footer">
+		<div class="row">
+		  <div class="col-auto mr-auto">
+			<%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-primary btn-sm" %>
+			<%= link_to "Delete", article_path(@article), method: :delete,
+						data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+		  </div>
+		  <div class="col-auto">
+			<%= link_to "View all articles", articles_path, class: "btn btn-outline-success btn-sm" %>
+		  </div>
+		</div>
+	  </div>
+	<% end %>
   </div>
 </div>
 
