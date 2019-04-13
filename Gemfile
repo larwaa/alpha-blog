@@ -38,7 +38,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'material_design_lite-sass'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'rb-readline'

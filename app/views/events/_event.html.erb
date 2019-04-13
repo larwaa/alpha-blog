@@ -1,0 +1,26 @@
+<div class="offset-2 col-8">
+  <div class="card" id="<%= event.id %>">
+	<h4 class="card-header"><%= event.event_type %></h4>
+	<div class="card-body">
+	  <h5 class="card-text">
+		Food: <%= event.food %>
+	  </h5>
+	  <h5 class="card-text">
+		Representatives: <%= event.representatives %>
+	  </h5>
+	  <h5 class="card-text">
+		Stand: <%= event.stand? ? "Yes" : "No" %>
+	  </h5>
+	  <h5 class="card-text">
+		Description: <%= event.description %>
+	  </h5>
+	  <h5 class="card-text">
+		Attendees: <%= event.attendees %>
+	  </h5>
+	</div>
+	<div class="card-footer">
+	  <%= link_to "Edit company information", edit_event_path(event), class: "btn btn-secondary" %>
+	  <%= link_to "Delete event", event_path(event), method: :delete, class: "btn btn-danger", remote: true %>
+	</div>
+  </div>
+</div>

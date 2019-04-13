@@ -1,0 +1,7 @@
+<h2 class="col-12 offset-2">Create new company</h2>
+<%= form_for Event.new do |f| %>
+  <%= render "form", f: f, obj: @event %>
+<% end %>
+
+<%= render 'layouts/messages' %>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails alpha-blog: development" uuid="ae993aaa-6775-4020-8957-a2d322dd6296">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>larswaage</user-name>
+    </data-source>
+    <data-source name="Rails alpha-blog: production" uuid="ca356214-b1e8-4d56-8472-cb8af2265184">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>Lars Waage</user-name>
+    </data-source>
+    <data-source name="Rails alpha-blog: test" uuid="4e49c8a6-8c99-46b2-9297-1aa2172b8cab">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+    </data-source>
+  </component>
+</project>
