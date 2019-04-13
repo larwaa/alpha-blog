@@ -1,0 +1,18 @@
+<div class="offset-2 col-8">
+  <div class="card">
+	<div class="card-header">
+	  <%= link_to company.name, company_path(company) %>
+	</div>
+	<div class="card-body">
+	  <%= company.description %>
+	  <ul>
+		<% company.users.each do |user| %>
+		  <li class="li">
+			<%= user.username %>
+			<%= user.email %>
+			<% end %>
+		  </li>
+	  </ul>
+	</div>
+  </div>
+</div>

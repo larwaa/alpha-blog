@@ -1,5 +1,11 @@
 <%= render "shared/errors", obj: obj %>
 <div class="form-group row">
+  <% if !company_logged_in? %>
+  	<%= f.label :company, class: "col-2 col-form-label col-form-label" %>
+	<div class="col-10">
+	  <%= f.text_field :company, class: "form-control", placeholder: "Event type", autofocus: true %>
+	</div>
+  <% end %>
   <div class="col-2 col-form-label col-form-label">
 	<%= f.label :event_type, class: "col-2 col-form-label col-form-label" %>
   </div>

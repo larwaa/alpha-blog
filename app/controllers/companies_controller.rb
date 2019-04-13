@@ -23,8 +23,12 @@ class CompaniesController < ApplicationController
 		@events = @company.events
 	end
 
+	def index
+		@companies = Company.all
+	end
+
 	def events
-		@event = Event.find_by(company: current_company)
+		@event = Event.find_by(company: @company)
 	end
 
 	def has_events?
@@ -41,7 +45,8 @@ class CompaniesController < ApplicationController
 	end
 
 	def require_same_user
-		if current_user != @user and ! current_user.admin?
+		set_company
+		if current_user.company != @company and ! current_user.admin? #sjekke også om man hører til bedriften
 			flash[:danger] = "You can only view your own company's page"
 			redirect_to root_path
 		end

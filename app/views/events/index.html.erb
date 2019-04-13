@@ -1,0 +1,5 @@
+<% @events.each do |event| %>
+  <% if event.progress > 80 %>
+	<%= render "event", event: event %>
+  <% end %>
+<% end %>

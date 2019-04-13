@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def current_company
-		@current_company ||= Company.find_by(user: current_user) if logged_in?
+		@current_company ||= (logged_in? and ! current_user.admin?) ? current_user.company : nil
 	end
 
 	def company_logged_in?

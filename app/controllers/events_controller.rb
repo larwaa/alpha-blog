@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 	before_action :event_params, only: [:create, :update]
 	before_action :set_event, only: [:edit, :update, :destroy]
-
 	def new
 		@event = Event.new
 	end
@@ -25,12 +24,16 @@ class EventsController < ApplicationController
 	end
 
 	def update
-		if @event.update(event_params.merge(company: current_company))
+		if @event.update(event_params.merge(company: @company))
 			flash[:success] = "Event details successfully updated"
 			redirect_to company_path(current_company)
 		else
 			render 'edit'
 		end
+	end
+
+	def index
+		@events = Event.all
 	end
 
 	def destroy

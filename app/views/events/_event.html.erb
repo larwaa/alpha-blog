@@ -17,10 +17,14 @@
 	  <h5 class="card-text">
 		Attendees: <%= event.attendees %>
 	  </h5>
+	  <div class="progress">
+		<div class="progress-bar" role="progressbar" style="width: <%= event.progress %>%" aria-valuenow="<%= event.progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+	  </div>
 	</div>
 	<div class="card-footer">
-	  <%= link_to "Edit company information", edit_event_path(event), class: "btn btn-secondary" %>
-	  <%= link_to "Delete event", event_path(event), method: :delete, class: "btn btn-danger", remote: true %>
+	  <%= link_to "Update event information", edit_event_path(event), class: "btn btn-secondary" %>
+	  <%= link_to "Delete event", event_path(event), method: :delete, remote: true,
+				  data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
 	</div>
   </div>
 </div>
