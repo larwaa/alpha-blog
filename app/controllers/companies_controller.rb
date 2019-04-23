@@ -4,7 +4,6 @@ class CompaniesController < ApplicationController
 	before_action :require_same_user, only: [:show]
 	helper_method :events, :has_events?
 
-
 	def new
 		@company = Company.new
 	end
