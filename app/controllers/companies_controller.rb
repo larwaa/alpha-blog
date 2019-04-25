@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 	before_action :company_params, only: [:create]
 	before_action :set_company, only: [:show]
-	before_action :require_same_user, only: [:show]
+	before_action :require_user, :require_same_user, only: [:show]
 	helper_method :events, :has_events?
 
 	def new
@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def create
-		@company = Company.new(company_params.merge(user: current_user))
+		@company = Company.new(company_params)
 		if @company.save
 			flash[:success] = "The company was successfully created."
 			redirect_to company_path

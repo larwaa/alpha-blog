@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 	resources :articles
 
 	get "register", to: "users#new"
-	resources :users, except: [:new]
+	resources :users, except: [:new] do
+	  get :add_company
+	end
 
 	get "login", to: "sessions#new"
 	post "login", to: "sessions#create"

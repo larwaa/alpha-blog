@@ -15,6 +15,14 @@
     <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description" %>
   </div>
 </div>
+<div class="form-group col-10 offset-2">
+  <div>
+	<%= f.label :user, class: "col-form-label col-form-label" %>
+  </div>
+  <div>
+	<%= f.text_field :user_id, class: "form-control", placeholder: "User email" %>
+  </div>
+</div>
 <div class="form-group row col-10 offset-2">
   <div class="mr-auto">
 	<%= f.submit class: "btn btn-primary" %>
