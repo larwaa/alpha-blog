@@ -1,0 +1,38 @@
+<%= render "shared/errors", obj: obj %>
+
+<div class="col-8 offset-2" id="<% obj.id %>">
+  <h4><%= obj.question.present? ? obj.question : "Error: question not available" %></h4>
+  <%= form_for(obj, remote: true) do |f| %>
+	<div class="form-group row">
+	  <div class="col-2">
+		<%= f.label :answer, class: "col-form-label"%>
+	  </div>
+	  <div class="col-10">
+		<%= f.text_field :answer, class: "form-control", placeholder: "Enter answer", data: { toggle: "tooltip", placement: "right" }, title: "#{obj.tooltip} #{ obj.locked ? " Locked, cannot be changed." : nil }", readonly: obj.locked?, id: obj.id %>
+	  </div>
+	</div>
+	<% unless obj.locked? %>
+	  <div class="form-group row mt-2">
+		<div class="col-auto mr-auto">
+		  <%= f.submit class: "btn btn-primary btn-sm", onclick: "loading(#{"btn" + obj.id.to_s});", id:"btn#{obj.id}"%>
+		</div>
+		<div class="spinner-border text-primary" role="status">
+		  <span class="sr-only">Loading...</span>
+		</div>
+		<div class="col-auto">
+		  <%= link_to "Cancel", text_questions_path, class:"btn btn-outline-danger btn-sm"%>
+		</div>
+	  </div>
+	<% end %>
+  <% end %>
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    function loading(id){
+		$(".btn-spinner").button("loading");
+	}
+</script>

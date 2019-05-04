@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root "pages#home"
-  get "about", to: "pages#about"
+  	root "pages#home"
+  	get "about", to: "pages#about"
 
 	resources :articles
 
@@ -16,5 +16,10 @@ Rails.application.routes.draw do
 
 	resources :companies
 	resources :events
+	resources :text_questions
+
+	namespace :admin do
+		resources :users
+	end
 
 end

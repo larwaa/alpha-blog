@@ -1,0 +1,5 @@
+<h2 class="col-8 offset-2">Edit <%= @user.username %></h2>
+
+<%= form_for [:admin, @user] do |f| %>
+  <%= render "users/form", f: f, user: @user %>
+<% end %>

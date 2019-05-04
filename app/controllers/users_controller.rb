@@ -45,16 +45,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def add_company
-		@user = current_user
-		@user.company = params[:company]
-		if @user.save
-			flash[:success] = "Company added successfully"
-		else
-			redirect_to user_path(@user)
-		end
-	end
-
 	private
 	def user_params
 		params.require(:user).permit(:username, :email, :password)

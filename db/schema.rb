@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_185900) do
+ActiveRecord::Schema.define(version: 2019_05_04_164331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2019_04_23_185900) do
     t.string "food"
     t.integer "attendees"
     t.string "event_type"
+  end
+
+  create_table "text_questions", force: :cascade do |t|
+    t.text "question"
+    t.text "tooltip"
+    t.text "answer"
+    t.integer "rows"
+    t.boolean "locked", default: false
   end
 
   create_table "users", force: :cascade do |t|
