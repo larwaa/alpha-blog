@@ -1,20 +1,12 @@
 <%= form_for [:admin, obj], remote: true do |f| %>
-  <div class="card mb-3">
+  <div class="card mb-3" id="<%= obj.id %>">
 	<div class="card-body">
 	  <div class="form-group row">
-		<div class="col-2">
+		<div class="col-2" >
 		  <%= f.label :question, class: "col-form-label" %>
 		</div>
 		<div class="col-10">
-		  <%= f.text_field :question, class: "form-control", placeholder: "Enter question", id: "question#{obj.id}" %>
-		</div>
-	  </div>
-	  <div class="form-group row">
-		<div class="col-2">
-		  <%= f.label :answer, class: "col-form-label"%>
-		</div>
-		<div class="col-10">
-		  <%= f.text_field :answer, class: "form-control", placeholder: "Enter answer", id: "answer#{obj.id}" %>
+		  <%= f.text_area :question, class: "form-control", placeholder: "Enter question", id: "question#{obj.id}" %>
 		</div>
 	  </div>
 	  <div class="form-group row">
@@ -22,7 +14,15 @@
 		  <%= f.label :tooltip, class: "col-form-label" %>
 		</div>
 		<div class="col-10">
-		  <%= f.text_field :tooltip, class: "form-control", placeholder: "Enter tooltip", id: "tooltip#{obj.id}" %>
+		  <%= f.text_area :tooltip, class: "form-control", placeholder: "Enter tooltip", id: "tooltip#{obj.id}"%>
+		</div>
+	  </div>
+	  <div class="form-group row">
+		<div class="col-2">
+		  <%= f.label :rows, class: "col-form-label" %>
+		</div>
+		<div class="col-10">
+		  <%= f.text_field :rows, class: "form-control", placeholder: "Enter number of rows" %>
 		</div>
 	  </div>
 	  <div class="form-group row">
@@ -39,8 +39,18 @@
 		<div class="col-auto mr-auto">
 		  <%= f.submit "Save", class:"btn btn-primary", id:"btn#{obj.id}" %>
 		</div>
+		<span class="spinner-border text-primary" role="status" aria-hidden="true" id="spinner<%= obj.id %>" style="display: none;"></span>
 		<div class="col-auto" id="saved<%= obj.id %>" style="display:none; color:darkgreen">Saved</div>
+		<div class="col-auto">
+		  <%= link_to "Delete", admin_text_question_path(obj), class:"btn btn-danger", method: :delete, data: {confirm: "Are you sure you want to delete the question? This cannot be undone."}, remote: true %>
+		</div>
 	  </div>
 	</div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    $( "form#edit_text_question_<%= obj.id %>" ).submit(function() {
+        $('span#spinner<%= obj.id %>').finish().fadeIn(100);
+    });
+</script>

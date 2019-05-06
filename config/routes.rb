@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	resources :companies
 	resources :events
 	resources :text_questions
+	resources :answers
 
 	namespace :admin do
 		get '', to: 'pages#home'

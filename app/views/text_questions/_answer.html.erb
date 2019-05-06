@@ -1,21 +1,23 @@
 <div class="form-group row">
-  <div class="col-2">
-	<%= f.label :answer, class: "col-form-label"%>
+  <div class="col-10 input-group">
+	<div class="input-group">
+	  <%= f.text_field :answer, class: "form-control", placeholder: "#{question.locked? ? nil : "Enter answer"}", data: { toggle: "tooltip", placement: "left" }, title: "#{question.tooltip} #{question.locked ? " Locked, cannot be changed." : nil }", readonly: question.locked?, id: question.id, style: "border:" %>
+	  <% f.hidden_field :text_question_id, value: question.id %>
+	  <% unless question.locked? %>
+		<div class="input-group-append">
+		  <%= f.submit "Save", id:"btn#{question.id}", class: "btn btn-primary" %>
+		</div>
+	  <% end %>
+	</div>
   </div>
-  <div class="col-10">
-	<%= f.text_field :answer, class: "form-control", placeholder: "Enter answer", data: { toggle: "tooltip", placement: "right" }, title: "#{obj.tooltip} #{ obj.locked ? " Locked, cannot be changed." : nil }", readonly: obj.locked?, id: obj.id, style: "border:" %>
+  <div class="col-2 row">
+	<span class="spinner-border text-primary" role="status" aria-hidden="true" id="spinner<%= question.id %>" style="display: none;"></span>
+	<div class="col-form-label" id="saved<%= question.id %>" style="display: none; color:darkgreen">Saved</div>
   </div>
 </div>
-<% unless obj.locked? %>
-  <div class="form-group row mt-2">
-	<div class="col-auto mr-auto">
-	  <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
-	</div>
-	<div id="saved<%= obj.id %>" style="display: none; color:darkgreen">
-	  Saved
-	</div>
-	<div class="col-auto">
-	  <%= link_to "Cancel", text_questions_path, class:"btn btn-outline-danger btn-sm"%>
-	</div>
-  </div>
-<% end %>
+
+<script type="text/javascript">
+    $( "form#edit_text_question_<%= question.id %>" ).submit(function() {
+        $('span#spinner<%= question.id %>').finish().fadeIn(100);
+    });
+</script>

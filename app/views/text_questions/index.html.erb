@@ -1,7 +1,14 @@
 <div class="col-8 offset-2">
+
+  <!-- CREATE NEW QUESTIONS -->
+  <%= form_for TextQuestion.new do |f| %>
+  	<%= render 'form', f: f %>
+  <% end %>
+
+  <!-- UPDATE EXISTING QUESTIONS -->
   <% @text_questions.each do |question| %>
 	<div>
-	  <%= render 'answer_form', obj: question %>
+	  <%= render 'answer_form', question: question %>
 	</div>
 	<hr>
   <% end %>

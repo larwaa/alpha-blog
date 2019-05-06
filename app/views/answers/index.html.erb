@@ -1,0 +1,16 @@
+<% @text_questions.each do |question| %>
+  <div class="col-12" id="<%= question.id %>">
+	<h4><%= question.question.present? ? question.question : "Error: question not available" %></h4>
+	<div>
+	  <% answer = question.answers.find_by(user_id: current_user) %>
+
+	  <div id="answers<%= question.id %>">
+		<% if answer.nil? %>
+		  <%= render 'create', question: question %>
+		<% else %>
+		  <%= render 'update', question: question, answer: answer %>
+		<% end %>
+	  </div>
+	</div>
+  </div>
+<% end %>

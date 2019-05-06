@@ -1,0 +1,4 @@
+$('div#answers<%= @id %>').html('<%= j render partial: 'update', locals: {answer: @answer, question: @answer.text_question} %>')
+$('span#spinner<%= @id %>').finish().fadeOut(100);
+$('input#<%= @id %>').val('<%= "test" %>');
+$('div#saved<%= @id %>').finish().fadeIn(100).fadeOut(1500)

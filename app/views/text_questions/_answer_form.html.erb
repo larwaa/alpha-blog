@@ -1,9 +1,9 @@
-<%= render "shared/errors", obj: obj %>
+<%= render "shared/errors", obj: question %>
 
-<div class="col-8 offset-2" id="<% obj.id %>">
-  <h4><%= obj.question.present? ? obj.question : "Error: question not available" %></h4>
-  <%= form_for obj, remote: true do |f| %>
-	<%= render 'text_questions/answer', f: f, obj: obj %>
+<div class="col-12" id="<% question.id %>">
+  <h4><%= question.question.present? ? question.question : "Error: question not available" %></h4>
+  <%= form_for @answer do |f| %>
+	<%= render 'text_questions/answer', f: f, question: question %>
   <% end %>
 </div>
 

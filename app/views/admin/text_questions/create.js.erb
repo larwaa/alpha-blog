@@ -1,0 +1,3 @@
+$('div#questions').prepend("<%= j render partial: 'question', locals: {obj: @text_question} %>")
+$('input#text_question_question').val(null)
+$('input#text_question_tooltip').val(null)

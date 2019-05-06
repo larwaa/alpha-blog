@@ -1,2 +1,3 @@
+$('span#spinner<%= @text_question.id %>').finish().fadeOut(100);
 $('input#<%= @text_question.id %>').val('<%= @text_question.answer %>');
 $('div#saved<%= @text_question.id %>').finish().fadeIn(100).fadeOut(1500)

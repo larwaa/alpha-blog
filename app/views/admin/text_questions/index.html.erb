@@ -1,3 +1,12 @@
-<% @text_questions.each do |question| %>
-	<%= render 'question', obj: question %>
+<!-- NEW QUESTIONS -->
+<%= form_for [:admin, TextQuestion.new], remote: true do |f| %>
+  <%= render 'form', f: f %>
 <% end %>
+
+
+<!-- EXISTING QUESTIONS -->
+<div class="col-8 offset-2" id="questions">
+  <% @text_questions.each do |question| %>
+	<%= render 'question', obj: question %>
+  <% end %>
+</div>
