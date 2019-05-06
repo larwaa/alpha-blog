@@ -8,15 +8,15 @@
 		<%= f.label :answer, class: "col-form-label"%>
 	  </div>
 	  <div class="col-10">
-		<%= f.text_field :answer, class: "form-control", placeholder: "Enter answer", data: { toggle: "tooltip", placement: "right" }, title: "#{obj.tooltip} #{ obj.locked ? " Locked, cannot be changed." : nil }", readonly: obj.locked?, id: obj.id %>
+		<%= f.text_field :answer, class: "form-control", placeholder: "Enter answer", data: { toggle: "tooltip", placement: "right" }, title: "#{obj.tooltip} #{ obj.locked ? " Locked, cannot be changed." : nil }", readonly: obj.locked?, id: obj.id, style: "border:" %>
 	  </div>
 	</div>
 	<% unless obj.locked? %>
 	  <div class="form-group row mt-2">
 		<div class="col-auto mr-auto">
-		  <%= f.submit class: "btn btn-primary btn-sm", onclick: "loading(#{"btn" + obj.id.to_s});", id:"btn#{obj.id}"%>
+		  <%= f.submit class: "btn btn-primary btn-sm", onclick: "loading(#{"load" + obj.id.to_s});", id:"btn#{obj.id}"%>
 		</div>
-		<div class="spinner-border text-primary" role="status">
+		<div class="spinner-border text-primary" role="status" hidden="hidden" id="load<%= obj.id %>">
 		  <span class="sr-only">Loading...</span>
 		</div>
 		<div class="col-auto">
@@ -31,8 +31,4 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
-
-    function loading(id){
-		$(".btn-spinner").button("loading");
-	}
 </script>
