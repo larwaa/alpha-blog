@@ -1,6 +1,5 @@
 class Admin::TextQuestionsController < AdminController
-	before_action :set_question, only: [:edit, :show, :update]
-
+	before_action :set_question, only: [:edit, :show, :update, :destroy, :field?]
 
 	def new
 		@text_question = TextQuestion.new
@@ -8,12 +7,24 @@ class Admin::TextQuestionsController < AdminController
 
 	def create
 		@text_question = TextQuestion.new(text_question_params)
+		respond_to do |format|
+			if @text_question.save
+				format.html {redirect_to admin_text_questions_path}
+				format.js { }
+			else
+				redirect_to admin_text_questions_path
+			end
+		end
+	end
 
-		if @text_question.save
-			flash[:success]
-			redirect_to text_questions_path
-		else
-			render 'new'
+	def destroy
+		respond_to do |format|
+			if @text_question.destroy
+				format.html {redirect_to admin_text_questions_path}
+				format.js { }
+			else
+				redirect_to admin_text_questions_path
+			end
 		end
 	end
 
@@ -24,10 +35,10 @@ class Admin::TextQuestionsController < AdminController
 	def update
 		respond_to do |format|
 			if @text_question.update(text_question_params)
-				format.html { redirect_to text_questions_path }
+				format.html { redirect_to admin_text_questions_path }
 				format.js { }
 			else
-				redirect_to text_questions_path
+				redirect_to admin_text_questions_path
 			end
 		end
 
@@ -39,11 +50,16 @@ class Admin::TextQuestionsController < AdminController
 
 	def index
 		@text_questions = TextQuestion.all
+		@text_question = TextQuestion.new
+	end
+
+	def field?
+		@text_question.rows > 1
 	end
 
 	private
 	def text_question_params
-		params.require(:text_question).permit(:question, :tooltip, :answer, :locked)
+		params.require(:text_question).permit(:question, :tooltip, :locked, :rows)
 	end
 
 	def set_question

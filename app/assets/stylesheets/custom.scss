@@ -3,15 +3,13 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 $theme-colors:(
-        "primary": #2a599b,
+        "primary": #702761,
 );
 
 @import "bootstrap";
 
-#logo {
-  letter-spacing: -1px;
-  font-weight: bold;
-  color: #2a599b;
+.logo-img {
+  height: 30px;
 }
 
 .center {
@@ -59,6 +57,10 @@ footer ul li{
   text-align: end;
   margin-top: 15px;
   margin-bottom: 0;
+}
+
+.col-form-label{
+  font-family: Roboto;
 }
 
 
