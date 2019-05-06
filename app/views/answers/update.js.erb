@@ -1,4 +1,4 @@
-debugger
 $('span#spinner<%= @id %>').finish().fadeOut(100);
-$('input#<%= @id %>').val('<%= "test"%>');
-$('div#saved<%= @id %>').finish().fadeIn(100).fadeOut(1500)
+$('input#form<%= @id %>').val("<%= @answer.answer.gsub(/\n/, '\n') %>");
+$('textarea#form<%= @id %>').val("<%= @answer.answer.gsub(/\n/, '\n') %>");
+$('div#saved<%= @id %>').finish().fadeIn(100).fadeOut(1500);

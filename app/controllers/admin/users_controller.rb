@@ -1,11 +1,10 @@
 class Admin::UsersController < AdminController
+	before_action :set_user, only: [:update, :show, :edit]
 
 	def edit
-		@user = User.find(params[:id])
 	end
 
 	def show
-		@user = User.last
 	end
 
 	def update
@@ -16,9 +15,14 @@ class Admin::UsersController < AdminController
 			render "edit"
 		end
 	end
+
 	private
 	def user_params
 		params.require(:user).permit(:username, :email, :password, :admin)
+	end
+
+	def set_user
+		@user = User.find(params[:id])
 	end
 
 end

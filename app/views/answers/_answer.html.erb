@@ -1,10 +1,13 @@
+<!-- This partial is for displaying the answers to the end user. -->
 <div class="form-group row">
   <div class="col-10 input-group">
 	<div class="input-group">
+	  <!-- If the question has a specified row height > 1, creates a text_area instead of text_field
+	  If the question is locked, it is set to read-only, tooltips and placeholders are adjusted to notify the user, submit button is also hidden -->
 	  <% if ! question.rows.nil? and question.rows > 1 %>
-		<%= f.text_area :answer, class: "form-control", rows: question.rows, placeholder: "#{question.locked? ? "This question is locked, contact kdntnu@bindeleddet.no if something is wrong." : "Enter answer"}", data: { toggle: "tooltip", placement: "left" }, title: "#{question.tooltip} #{question.locked ? " Locked, cannot be changed." : nil }", readonly: question.locked?, id: question.id %>
+		<%= f.text_area :answer, class: "form-control", id: "form#{question.id}", rows: question.rows, placeholder: "#{question.locked? ? "This question is locked, contact kdntnu@bindeleddet.no if something is wrong." : "Enter answer"}", data: { toggle: "tooltip", placement: "left" }, title: "#{question.tooltip} #{question.locked ? " Locked, cannot be changed." : nil }", readonly: question.locked? %>
 	<% else %>
-		<%= f.text_field :answer, class: "form-control", placeholder: "#{question.locked? ? "This question is locked, contact kdntnu@bindeleddet.no if something is wrong." : "Enter answer"}", data: { toggle: "tooltip", placement: "left" }, title: "#{question.tooltip} #{question.locked ? " Locked, cannot be changed." : nil }", readonly: question.locked?, id: question.id %>
+		<%= f.text_field :answer, class: "form-control", id: "form#{question.id}", placeholder: "#{question.locked? ? "This question is locked, contact kdntnu@bindeleddet.no if something is wrong." : "Enter answer"}", data: { toggle: "tooltip", placement: "left" }, title: "#{question.tooltip} #{question.locked ? " Locked, cannot be changed." : nil }", readonly: question.locked?%>
 	<% end %>
 	  <%= f.hidden_field :text_question_id, value: question.id %>
 	  <% unless question.locked? %>
@@ -14,6 +17,7 @@
 	  <% end %>
 	</div>
   </div>
+  <!-- Div for spinning loading icon. Logic is as follows: When pressing submit, fade in the spinner. When the ajax call is complete, fade out the spinner -->
   <div class="col-2 row align-self-center">
 	<span class="spinner-border text-primary" role="status" aria-hidden="true" id="spinner<%= question.id %>" style="display: none;"></span>
 	<div class="col-form-label" id="saved<%= question.id %>" style="display: none; color:darkgreen;">Saved</div>
@@ -21,12 +25,15 @@
 </div>
 
 <script type="text/javascript">
+  	// Javascript for fading in the spinner during the submission of a new form.
     $( "form#new_answer_<%= question.id %>" ).submit(function() {
         $('span#spinner<%= question.id %>').finish().fadeIn(100);
     });
+    // Javascript for fading in the spinner during the submission of an update.
     $( "form#edit_answer_<%= question.id %>" ).submit(function() {
         $('span#spinner<%= question.id %>').finish().fadeIn(100);
     });
+    // Javascript to toggle the tooltips, see https://getbootstrap.com/docs/4.3/components/tooltips/
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });

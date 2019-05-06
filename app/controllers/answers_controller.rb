@@ -9,6 +9,7 @@ class AnswersController < ApplicationController
 		@answer = Answer.new(answer_params.merge(user: current_user))
 		respond_to do |format|
 			if @answer.save
+				# ID solution for .js.erb files, no id from the @answer variable.
 				@id = @answer.text_question_id
 				format.html {redirect_to answers_path}
 				format.js { }
@@ -30,6 +31,7 @@ class AnswersController < ApplicationController
 	def update
 		respond_to do |format|
 			if @answer.update(answer_params)
+				# ID solution for .js.erb files, no id from the @answer variable.
 				@id = @answer.text_question_id
 				format.html {redirect_to answers_path}
 				format.js { }
@@ -38,11 +40,6 @@ class AnswersController < ApplicationController
 				redirect_to answers_path
 			end
 		end
-	end
-
-	def find_answer
-		@text_question = TextQuestion.find(params[:id])
-		@text_question.answers.find_by(user_id: current_user)
 	end
 
 	private

@@ -12,7 +12,7 @@ class Admin::TextQuestionsController < AdminController
 				format.html {redirect_to admin_text_questions_path}
 				format.js { }
 			else
-				redirect_to admin_text_questions_path
+				format.html { redirect_to admin_text_questions_path }
 			end
 		end
 	end
@@ -23,7 +23,7 @@ class Admin::TextQuestionsController < AdminController
 				format.html {redirect_to admin_text_questions_path}
 				format.js { }
 			else
-				redirect_to admin_text_questions_path
+				format.html { redirect_to admin_text_questions_path }
 			end
 		end
 	end
@@ -38,7 +38,7 @@ class Admin::TextQuestionsController < AdminController
 				format.html { redirect_to admin_text_questions_path }
 				format.js { }
 			else
-				redirect_to admin_text_questions_path
+				format.html { redirect_to admin_text_questions_path }
 			end
 		end
 

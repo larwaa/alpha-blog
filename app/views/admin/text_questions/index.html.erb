@@ -1,5 +1,6 @@
 <!-- NEW QUESTIONS -->
-<%= form_for [:admin, TextQuestion.new], remote: true do |f| %>
+<%= form_for [:admin, @text_question], remote: true do |f| %>
+  <%= render 'shared/errors', obj: @text_question %>
   <%= render 'form', f: f %>
 <% end %>
 

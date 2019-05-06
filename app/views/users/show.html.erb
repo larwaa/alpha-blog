@@ -5,22 +5,6 @@
   </div>
 </div>
 <hr>
-<% if @user.company.nil? %>
-  <ul>
-	<% Company.all.each do |company| %>
-		<li class="row mb-2">
-		  <div class="mr-auto">
-			<%= company.name %>
-		  </div>
-		  <div>
-			<%= link_to "Add", user_add_company_path(@user), params: { company: company }, class: "btn btn-primary" %>
-		  </div>
-		</li>
-	<% end %>
-  </ul>
-<% else %>
-  <h4 style="text-align: center"><%= @user.company %></h4>
-<% end %>
 <hr>
 <h4 style="text-align: center"><%= @user.username %>'s articles</h4>
 <%= render "articles/article", obj: @user_articles %>

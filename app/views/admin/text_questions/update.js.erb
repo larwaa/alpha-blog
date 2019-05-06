@@ -1,5 +1,5 @@
 $('span#spinner<%= @text_question.id %>').finish().fadeOut(100);
-$('input#question<%= @text_question.id %>').val('<%= @text_question.question %>');
-$('input#tooltip<%= @text_question.id %>').val('<%= @text_question.tooltip %>');
+$('input#question<%= @text_question.id %>').val('<%= @text_question.question.gsub(/\n/, '\n') %>');
+$('input#tooltip<%= @text_question.id %>').val('<%= @text_question.tooltip.gsub(/\n/, '\n') %>');
 $('input#checkbox<%= @text_question.id %>').val('<%= @text_question.locked %>');
 $('div#saved<%= @text_question.id %>').finish().fadeIn(100).fadeOut(1500);

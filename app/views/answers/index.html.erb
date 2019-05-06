@@ -1,5 +1,5 @@
 <% @text_questions.each do |question| %>
-  <div class="col-12" id="<%= question.id %>">
+  <div class="col-10 offset-1" id="<%= question.id %>">
 	<h4><%= question.question.present? ? question.question : "Error: question not available" %></h4>
 	<div>
 	  <% answer = question.answers.find_by(user_id: current_user) %>

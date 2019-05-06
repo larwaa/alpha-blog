@@ -1,4 +1,8 @@
-$('div#answers<%= @id %>').html('<%= j render partial: 'update', locals: {answer: @answer, question: @answer.text_question} %>')
+// First line is very important, replaces the "form_for Answer.new" with a form_for with an existing answer.
+
+$('div#answers<%= @id %>').html('<%= j render partial: 'update', locals: {answer: @answer, question: @answer.text_question} %>');
+// User feedback, fades out the spinner and fades in the "saved" text.
 $('span#spinner<%= @id %>').finish().fadeOut(100);
-$('input#<%= @id %>').val('<%= "test" %>');
-$('div#saved<%= @id %>').finish().fadeIn(100).fadeOut(1500)
+$('input#form<%= @id %>').val("<%= @answer.answer.gsub(/\n/, '\n') %>");
+$('textarea#form<%= @id %>').val("<%= @answer.answer.gsub(/\n/, '\n') %>");
+$('div#saved<%= @id %>').finish().fadeIn(100).fadeOut(1500);
