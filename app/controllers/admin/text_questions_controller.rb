@@ -1,5 +1,6 @@
-class TextQuestionsController < ApplicationController
+class Admin::TextQuestionsController < AdminController
 	before_action :set_question, only: [:edit, :show, :update]
+
 
 	def new
 		@text_question = TextQuestion.new
@@ -42,11 +43,10 @@ class TextQuestionsController < ApplicationController
 
 	private
 	def text_question_params
-		params.require(:text_question).permit(:question, :tooltip, :answer)
+		params.require(:text_question).permit(:question, :tooltip, :answer, :locked)
 	end
 
 	def set_question
 		@text_question = TextQuestion.find(params[:id])
 	end
-
 end

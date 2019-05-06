@@ -1,2 +1,2 @@
-$('input#<% @text_question.id %>').val = '<% @text_question.answer %>';
-$("#flash").html('<%= j render partial: "shared/errors" %>');
+$('input#<%= @text_question.id %>').val('<%= @text_question.answer %>');
+$('div#saved<%= @text_question.id %>').finish().fadeIn(100).fadeOut(1500)

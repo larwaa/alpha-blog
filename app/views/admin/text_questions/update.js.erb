@@ -1,0 +1,5 @@
+$('input#question<%= @text_question.id %>').val('<%= @text_question.question %>');
+$('input#answer<%= @text_question.id %>').val('<%= @text_question.answer %>');
+$('input#tooltip<%= @text_question.id %>').val('<%= @text_question.tooltip %>');
+$('input#checkbox<%= @text_question.id %>').val('<%= @text_question.locked %>');
+$('div#saved<%= @text_question.id %>').finish().fadeIn(100).fadeOut(1500);

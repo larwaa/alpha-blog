@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 	resources :text_questions
 
 	namespace :admin do
+		get '', to: 'pages#home'
 		resources :users
+		resources :text_questions
 	end
 
 end
