@@ -7,6 +7,7 @@
           <div class="card-body">
             <h5 class="card-title">PWC</h5>
             <p class="card-text">Spis på frati!</p>
+			<button class="foo-button mdc-button">Button</button>
             <%= link_to "Meld på", "#", class: "btn btn-primary" %>
           </div>
         </div>
@@ -17,6 +18,10 @@
   	<%= link_to "Register", register_path, class: "btn btn-light" %>
   <% end %>
 </div>
+
+<script>
+  $(mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button')));
+</script>
 
 
 
