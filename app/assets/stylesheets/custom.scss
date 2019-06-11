@@ -2,6 +2,7 @@
 @import "bootstrap/functions";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
+
 $theme-colors:(
         "primary": #702761,
 );
@@ -57,10 +58,6 @@ footer ul li{
   text-align: end;
   margin-top: 15px;
   margin-bottom: 0;
-}
-
-.col-form-label{
-  font-family: Roboto;
 }
 
 

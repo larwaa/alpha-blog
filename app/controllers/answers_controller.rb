@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_action :require_user
 	before_action :set_answer, only: [:edit, :update]
 
 	def new
