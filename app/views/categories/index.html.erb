@@ -1,0 +1,10 @@
+<div class="col-8 offset-2">
+  <h1 class="mb-4">Categories</h1>
+
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, category_path(category) %></li>
+    <% end %>
+  </ul>
+
+</div>

@@ -1,0 +1,22 @@
+<%= render "shared/errors", obj: category %>
+
+<div class="col-8 offset-2">
+  <% if category.new_record? %>
+    <div class="form-group row align-self-center">
+      <div class="col-2">
+        <%= f.label :name, class: "col-form-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group row">
+    <div class="col-auto mr-auto">
+      <%= f.submit(category.new_record? ? "Register" : "Update category", class: "btn btn-primary") %>
+    </div>
+    <div class="col-auto">
+      <%= link_to "Cancel", categories_path, class:"btn btn-outline-danger" %>
+    </div>
+  </div>
+</div>

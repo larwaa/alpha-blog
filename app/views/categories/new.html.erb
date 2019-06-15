@@ -1,0 +1,5 @@
+<h1 class="col-8 offset-2 mb-4">New category</h1>
+
+<%= form_for @category do |f| %>
+  <%= render 'form', f: f, category: @category %>
+<% end %>

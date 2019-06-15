@@ -1,0 +1,18 @@
+require "test_helper"
+
+class ListCategoriesTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @category = Category.create(name: "food")
+    @category2 = Category.create(name: "news")
+  end
+
+  test "showing categories listing" do
+    get categories_path
+    assert_response :success
+    assert_template "categories/index"
+    assert_select "a[href=?]", category_path(@category), text: @category.name
+    assert_select "a[href=?]", category_path(@category2), text: @category2.name
+  end
+
+end
