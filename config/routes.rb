@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   	get "about", to: "pages#about"
 
 	resources :articles
-	resources :categories, except: [:delete]
+
+  get "categories/new", as: "new_category", to: "admin/categories#new"
+  post "categories", to: "admin/categories#create"
+	resources :categories, except: [:delete, :new, :create]
+
 
 	get "register", to: "users#new"
 	resources :users, except: [:new] do
